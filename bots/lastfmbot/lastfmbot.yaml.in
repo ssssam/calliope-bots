@@ -1,0 +1,5 @@
+description: |
+  Provides customized recommendations based on a user's Last.fm listening
+  history.
+
+command: ['python3', '@pythonsitepackagesdir@/calliope_bots/bots/lastfmbot/lastfmbot.py']

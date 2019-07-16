@@ -1,0 +1,4 @@
+description: |
+  Recommendation music that was championed by the UK disk jockey John Peel.
+
+command: ['python3', '@pythonsitepackagesdir@/calliope_bots/bots/peelbot/peelbot.py']
