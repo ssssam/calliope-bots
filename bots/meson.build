@@ -1,0 +1,2 @@
+subdir('lastfmbot')
+subdir('peelbot')
