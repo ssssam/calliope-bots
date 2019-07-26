@@ -16,6 +16,7 @@ def bots():
     for path in pathlib.Path(CALLIOPE_BOT_DIR).iterdir():
         with open(path) as f:
             bot = yaml.safe_load(f)
+        bot['name'] = path.name
         result.append(bot)
     return result
 
@@ -54,7 +55,13 @@ def main(debug, frequency, seed, tick, user):
 
         result = subprocess.run(command, input=query_encoded, stdout=subprocess.PIPE)
 
-        print(result.stdout.decode('utf-8'))
+        output = json.loads(result.stdout.decode('utf-8'))
+        output['tick'] = tick
+        output['seed'] = seed
+        output['bot'] = bot['name']
+
+        json.dump(output, sys.stdout, indent=4)
+        sys.stdout.write('\n')
 
 
 main()
